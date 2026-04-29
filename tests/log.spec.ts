@@ -2,9 +2,9 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { log } from "../src/lib/log.js";
 
 describe("log", () => {
-  let stderrSpy: ReturnType<typeof vi.spyOn>;
+  let stderrSpy: any;
   beforeEach(() => {
-    stderrSpy = vi.spyOn(process.stderr, "write").mockImplementation(() => true);
+    stderrSpy = vi.spyOn(process.stderr, "write").mockImplementation((() => true) as any);
   });
   afterEach(() => stderrSpy.mockRestore());
 
@@ -21,7 +21,7 @@ describe("log", () => {
   it("supports warn and error levels", () => {
     log.warn({}, "w");
     log.error({}, "e");
-    const levels = stderrSpy.mock.calls.map((c) => JSON.parse(String(c[0])).level);
+    const levels = stderrSpy.mock.calls.map((c: unknown[]) => JSON.parse(String(c[0])).level);
     expect(levels).toEqual(["warn", "error"]);
   });
 });
