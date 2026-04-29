@@ -1,0 +1,34 @@
+# Third-party tool source — re-fetch via the GSD installer when needed
+get-shit-done-main/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env / secrets — NEVER commit
+.env
+.env.*
+!.env.example
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor swap / temp
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+
+# Logs
+*.log
+
+# Claude Code runtime caches (project-local)
+.claude/cache/
+.claude/session-state/
+.claude/file-history/
+.claude/paste-cache/
