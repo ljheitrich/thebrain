@@ -32,3 +32,6 @@ desktop.ini
 .claude/session-state/
 .claude/file-history/
 .claude/paste-cache/
+
+# Personal Claude Code settings — convention is local-only
+.claude/settings.local.json
